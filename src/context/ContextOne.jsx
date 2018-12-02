@@ -2,30 +2,22 @@ import React, { createContext, useReducer } from "react";
 
 let ContextOne = createContext();
 
-let initialState = {
-  count: 10,
-  currentColor: '#bada55'
+let initialState =  {
+  theme: {
+    backgroundColor: '#ee5679',
+    particleColor: '#f3f3fa',
+    cardBackground: '#9db0bf',
+    cardTextColor: '#f3f3fa',
+    headerColor: '#f3f3fa'
+  },
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
-    case "reset":
-      return initialState;
-    case "increment":
+    case "set-theme":
       return {
-        ...state,
-        count: state.count + 1
+        theme: action.payload
       };
-    case "decrement":
-      return {
-        ...state,
-        count: state.count - 1
-      };
-    case "set-color":
-      return {
-        ...state,
-        currentColor: action.payload
-      }
     default:
       return initialState;
   }

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 
-const Card = () => {
+const Card = ({ cardBackground, children }) => {
   // Ref added to card element and use on the MouseEvent to get elements offset and dimensions
   const ref = useRef();
   // track whether the card is hovered or not.
@@ -34,7 +34,7 @@ const Card = () => {
            (window.scrollY || window.pageYOffset || document.body.scrollTop));
 
        // set animation values base on card position and card dimensions
-       const dampen = 50 // lower the number the less rotation
+       const dampen = 50; // lower the number the less rotation
        const xys = [
          -(y - ref.current.clientHeight / 2) / dampen, // rotateX
          (x - ref.current.clientWidth / 2) / dampen, // rotateY
@@ -51,6 +51,7 @@ const Card = () => {
      style={{
        // If hovered we want it to overlap other cards when it scales up
        zIndex: isHovered ? 2 : 1,
+       backgroundColor: cardBackground,
        // Interpolate function to handle css changes
        transform: animatedProps.xys.interpolate(
          (x, y, s) =>
@@ -59,13 +60,7 @@ const Card = () => {
      }}
 
    >
-     <div>
-       stuff
-     </div>
-     <div>
-       some more stuff
-     </div>
-     <h1>hello there</h1>
+     {children}
    </animated.div>
   )
 };

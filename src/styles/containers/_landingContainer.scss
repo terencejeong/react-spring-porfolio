@@ -26,3 +26,20 @@
     width: 33.33333333333333%;
   }
 }
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card-body {
+  margin-top: 27px;
+  margin-bottom: 27px;
+  line-height: 1.5;
+  font-size: 16px;
+  font-family: 'Roboto Slab', serif;
+  @media screen and (min-width: 576px) {
+    font-size: 18px;
+  }
+}

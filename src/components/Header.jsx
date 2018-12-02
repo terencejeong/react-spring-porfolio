@@ -1,10 +1,17 @@
 import React from 'react';
+import styled from '@emotion/styled';
 
-const Header = () => {
+const HeaderContainer = styled.div`
+  text-align: center;
+  color: ${props => props.headerColor};
+  font-family: 'Montserrat', sans-serif;
+`
+
+const Header = ({ headerColor }) => {
   return (
-    <div style={{ textAlign: 'center'}}>
-      <h1>My name is Terence Jeong, I am a developer. </h1>
-    </div>
+    <HeaderContainer headerColor={headerColor}>
+      <h1>Hi there, I'm Terry!</h1>
+    </HeaderContainer>
   )
 };
 
